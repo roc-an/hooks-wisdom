@@ -8,7 +8,7 @@ const useUnmount = (fn: () => void) => {
     }
   }
 
-  const fnRef = useLatest(fn);
+  const fnRef = useLatest(fn); // 确保函数是最新的
 
   useEffect(
     () => () => {
