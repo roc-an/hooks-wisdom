@@ -22,6 +22,7 @@ function useMemoizedFn<T extends noop>(fn: T) {
 
   const memoizedFn = useRef<PickFunction<T>>();
   if (!memoizedFn.current) {
+    // 确保函数地址永远不会变化
     memoizedFn.current = function (this, ...args) {
       return fnRef.current.apply(this, args);
     };
